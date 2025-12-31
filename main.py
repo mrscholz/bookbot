@@ -1,7 +1,11 @@
+import sys
 from stats import get_book_text, count_words, count_chars, print_report
 
 def main():
-    url = "./books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    url = sys.argv[1]
     text = get_book_text(url)
     words = count_words(text)
     char_count = count_chars(text)
